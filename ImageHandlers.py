@@ -1,8 +1,10 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from torch.nn import Module
+import numpy as np
+import torch
 
 
-def print_image_from_ndarray(image: np.ndarray):
-    plt.imshow(image)
+def print_image(image: torch.Tensor):
+    image = torch.mean(image[0], 0)
+    print(image.shape)
+    plt.imshow(image.numpy(), cmap='Greys')
     plt.show()
